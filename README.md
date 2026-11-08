@@ -15,10 +15,10 @@ Built using **Retrieval-Augmented Generation (RAG)**, Sentence Transformers, FAI
 - 🧠 **Semantic Embeddings** – Convert text into numerical vector representations using Sentence Transformers.
 - 🔍 **Vector Search** – Retrieve relevant document chunks using FAISS similarity search.
 - 🤖 **AI-Powered Answers** – Generate natural-language responses using Google Gemini.
-- 📚 **Source References** – View the document chunks used to generate an answer.
-- 💬 **Interactive Chat** – Ask multiple questions about the uploaded document.
-- 🎨 **Modern UI** – Clean, responsive Streamlit interface.
-- 🔄 **Document Management** – Upload a new document or reset the existing conversation.
+- 📚 **Source References** – View document chunks used to generate an answer.
+- 💬 **Interactive Chat** – Ask multiple questions about uploaded documents.
+- 🎨 **Modern UI** – Clean and responsive Streamlit interface.
+- 🔄 **Document Management** – Upload a new document or reset the conversation.
 
 ---
 
@@ -40,7 +40,7 @@ Built using **Retrieval-Augmented Generation (RAG)**, Sentence Transformers, FAI
 
 ## 🧠 How It Works – RAG Architecture
 
-DocuMind AI uses Retrieval-Augmented Generation (RAG) to answer questions based on uploaded PDF documents.
+DocuMind AI uses **Retrieval-Augmented Generation (RAG)** to answer questions based on uploaded PDF documents.
 
 ### Workflow
 
@@ -48,7 +48,7 @@ DocuMind AI uses Retrieval-Augmented Generation (RAG) to answer questions based 
 2. **Text Extraction:** PyMuPDF extracts readable text from the document.
 3. **Text Chunking:** Extracted text is divided into smaller chunks with overlapping content.
 4. **Embedding Generation:** Sentence Transformers converts each chunk into a 384-dimensional vector.
-5. **Vector Storage:** FAISS stores the vectors for efficient similarity search.
+5. **Vector Storage:** FAISS stores the vectors for similarity search.
 6. **Question Processing:** The user's question is converted into an embedding.
 7. **Context Retrieval:** FAISS retrieves the three most relevant document chunks.
 8. **Answer Generation:** Google Gemini generates an answer using the retrieved context.
@@ -65,6 +65,7 @@ flowchart TD
 
     F[User Question] --> G[Question Embedding]
     G --> H[FAISS Similarity Search]
+
     E --> H
 
     H --> I[Retrieve Top 3 Chunks]
@@ -94,13 +95,20 @@ DocuMind-AI/
 │
 ├── app.py
 ├── requirements.txt
-├── .env
 ├── .gitignore
 └── README.md
 ```
 
----
+**Note:** The `.env` file is created locally and is excluded from Git using `.gitignore`.
 
+---
+## 📸 Application Screenshots
+
+### Application Interface
+![DocuMind AI UI](images/UI.png)
+
+### AI Chat and Answer
+![DocuMind AI Chat](images/chat-answer.png)
 ## ⚙️ Installation and Setup
 
 Follow these steps to run DocuMind AI locally.
@@ -145,9 +153,7 @@ pip install -r requirements.txt
 
 ### 6. Configure the Gemini API Key
 
-Get your API key from Google AI Studio:
-
-https://aistudio.google.com/apikey
+Get your API key from [Google AI Studio](https://aistudio.google.com/apikey).
 
 Create a `.env` file in the project root directory.
 
@@ -164,7 +170,7 @@ Replace `your_gemini_api_key` with your actual API key.
 ### 7. Run the Application
 
 ```bash
-streamlit run app.py
+python -m streamlit run app.py
 ```
 
 The application will open in your browser, usually at:
@@ -183,7 +189,7 @@ http://localhost:8501
 4. Wait for text extraction, embedding generation, and vector database creation.
 5. Enter a question in the chat input.
 6. Receive an AI-generated answer based on your document.
-7. Expand **View document sources** to inspect the retrieved text chunks.
+7. Expand the source section to inspect the retrieved text chunks.
 
 ---
 
@@ -210,7 +216,7 @@ FAISS performs similarity search to identify document chunks relevant to a user'
 
 The application uses normalized vectors with inner-product similarity to calculate cosine similarity.
 
-### 4. Retrieval-Augmented Generation
+### 4. Retrieval-Augmented Generation (RAG)
 
 RAG combines information retrieval with generative AI.
 
@@ -237,7 +243,7 @@ Instead of relying only on the language model's existing knowledge, DocuMind AI 
 - [ ] Implement document summarization.
 - [ ] Add downloadable chat history.
 - [ ] Support DOCX and TXT files.
-- [ ] Add deployment with a public application URL.
+- [ ] Deploy with a public application URL.
 - [ ] Improve retrieval using advanced RAG techniques.
 
 ---
@@ -255,4 +261,4 @@ Full Stack Developer | Python | AI & Data Analytics
 
 ## 📜 License
 
-This project is open-source and available under the MIT License.
+License information will be added once a license file is included in the repository.
